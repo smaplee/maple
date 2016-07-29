@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Maple
+    </title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/customer.css">
+    <link rel="stylesheet" href="/static/css/jquery.eeyellow.Timeline.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-select.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap-treeview.js"></script>
+    <script src="/static/js/quicksearch.js"></script>
+    <script src="/static/js/jquery.eeyellow.Timeline.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script src="/static/js/application.js"></script>
+
+</head>
+
+<body>
+<header style="background-color: #252830">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 text-left">
+            <h1>Maple</h1>
+            <p style="text-indent: 60px">——To Create The Most Simple And Effective Operation Platform</p>
+
+        </div>
+
+    </div>
+    <div style="border: 1px solid white"></div>
+</header>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3" style="margin-left: 15px">
+                <p><h3>Tree</h3></p>
+                <div class="row">
+                    <div class="col-sm-1" style="margin-left: 15px">
+                        <button class="btn btn-default btn-sm" id="addproject">
+                                <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                    <div class="col-sm-8" style="margin-left: 6px;">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group input-group-sm">
+                                    <input id="search-project-val" type="text" class="form-control " placeholder="Project Name">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-9" style="margin-left: -55px">
+                <p><h3>Host Item</h3></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group input-group-sm">
+                                    <input id="quicksearch" type="text" class="form-control" placeholder="Project Name">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-1 col-md-offset-2">
+                        <button id='multi-operate' type="button" class="btn btn-sm btn-info">批量操作</button>
+                    </div>
+                    <div class="col-md-1">
+                        <button id="multi-remove" type="button" class="btn btn-sm btn-info">批量删除</button>
+                    </div>
+                    <div class="col-md-1">
+                        <a id="publish" type="button" class="btn btn-sm btn-info">项目发布</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a id="timeline" type="button" class="btn btn-sm btn-info">历史纪录</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="height: 15px;"></div>
+        <div class="row">
+            <div class="col-md-3" style="margin-left: 15px">
+                <div id="tree" style="width: 255px">
+
+                </div>
+            </div>
+            <div class="col-md-9" style="margin-left: -55px">
+
+                <table class="table table-condensed" id="sample">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" class="aqk" id="selectAll"></th>
+                        <th>IP address</th>
+                        <th>Project desc</th>
+                        <th>User Group</th>
+                        <th>Template</th>
+                        <th>Screen</th>
+                        <th>State</th>
+                        <th>Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="aql"></td>
+                        <td>
+                            <strong style="border-bottom: 1px dotted whitesmoke">
+                                <a name="host" value="hid">192.168.100.1</a>
+                            </strong>
+                        </td>
+
+                        <td>
+                            <strong style="border-bottom: 1px dotted whitesmoke">
+                                <a name="service" value="sid">customer order</a>
+                            </strong>
+                        </td>
+                        <td>
+                            <strong style="border-bottom: 1px dotted whitesmoke">
+                                <a name="user" value="uid"><abbr title="root">root</abbr></a>
+                            </strong>
+                        </td>
+                        <td>
+                            <strong style="border-bottom: 1px dotted whitesmoke">
+                                <a name="template" value="tid">temp</a>
+                            </strong>
+                        </td>
+                        <td>
+                            <small style="border-bottom: 1px dotted whitesmoke">
+                                <a name="chart">Chart</a>
+                            </small>
+                        </td>
+                        <td>
+                            <small style="border-bottom: 1px dotted whitesmoke">
+                            <a name="monitor"><span class="text-danger">Error</span></a>
+                            </small>
+                        </td>
+                        <td>
+                            <span><strong style="border-bottom: 1px dotted whitesmoke"><a href="/view/command.html">cmd</a></strong></span>
+                            <span><strong style="border-bottom: 1px dotted whitesmoke"><a href="#">novnc</a></strong></span>
+                            <span><strong style="border-bottom: 1px dotted whitesmoke"><a href="#">xshell</a></strong></span>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox" class="aql"></td>-->
+                        <!--<td>-->
+                            <!--<strong style="border-bottom: 1px dotted whitesmoke">-->
+                                <!--<a href="#">192.168.100.2</a>-->
+                            <!--</strong>-->
+                        <!--</td>-->
+
+                        <!--<td>-->
+                            <!--<strong style="border-bottom: 1px dotted whitesmoke">-->
+                                <!--<a href="#">customer product</a>-->
+                            <!--</strong>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<strong style="border-bottom: 1px dotted whitesmoke">-->
+                                <!--<a href="#">root</a>-->
+                            <!--</strong>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<strong style="border-bottom: 1px dotted whitesmoke">-->
+                                <!--<a href="#">temp</a>-->
+                            <!--</strong>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<small style="border-bottom: 1px dotted whitesmoke">-->
+                                <!--<a href="#">Chart</a>-->
+                            <!--</small>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<small style="border-bottom: 1px dotted whitesmoke">-->
+                            <!--<a href="#"><span class="text-danger">Error</span></a>-->
+                            <!--</small>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<span><strong style="border-bottom: 1px dotted whitesmoke"><a href="#">cmd</a></strong></span>-->
+                            <!--<span><strong style="border-bottom: 1px dotted whitesmoke"><a href="#">novnc</a></strong></span>-->
+                            <!--<span><strong style="border-bottom: 1px dotted whitesmoke"><a href="#">xshell</a></strong></span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="modal fade" id="timemodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">历史纪录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="VivaTimeline">
+                            <dl>
+
+                                <dt>Feb 2016</dt>
+                                <dd class="pos-left clearfix">
+                                    <div class="circ"></div>
+                                    <div class="time">Jan 07</div>
+                                    <div class="events">
+                                        <div class="events-header">发布任务</div>
+                                        <div class="events-body" style="display: block;">
+                                            <div class="row" style="display: block; height: auto;">
+                                                <div class="events-desc">
+                                                    <p>任务名: 123</p>
+                                                    <p>时间: 215-07-11</p>
+                                                    <p>项目名: ccigmall customer order</p>
+                                                    <p>版本号: 2048</p>
+                                                    <p>版本修改: 添加时间轴</p>
+                                                    <p>发布环境: 测试环境</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deploymodal" tabindex="-1" role="dialog" aria-labelledby="deployLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">发布计划</div>
+                    <div class="panel-body">
+                        <form class="form">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" ><a href="#list" aria-controls="list" role="tab" data-toggle="tab">发布历史</a></li>
+                                <li role="presentation" class="active"><a href="#task" aria-controls="advance" role="tab" data-toggle="tab">发布列表</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="task">
+                                    <div class="form-group">
+                                <label for="job">项目名</label>
+                                <input type="text" class="form-control" id="job" readonly>
+                            </div>
+                                    <div class="form-group">
+                                        <label for="jobname">任务名</label>
+                                        <input type="text" class="form-control input-sm" id="jobname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="branch">分支</label>
+                                        <select class="form-control selectpicker" id="branch">
+                                            <option value="dev">dev</option>
+                                            <option value="qa">qa</option>
+                                            <option value="pub">default</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="version">版本</label>
+                                        <select class="form-control selectpicker" id="version">
+                                            <option value="123">123</option>
+                                            <option value="234">234</option>
+                                            <option value="345">345</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="msg">修改记录</label>
+                                        <select class="form-control selectpicker" id="msg">
+                                            <option value="123">123</option>
+                                            <option value="234">234</option>
+                                            <option value="345">345</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jobtime">发布时间</label>
+                                        <span style="position: relative; z-index: 9999;">
+                                            <input type='text' id="jobtime" class="form-control datetimepicker" value="2012-05-15 21:05:00">
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hosts">发布主机列表</label>
+                                        <textarea id="hosts" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="list">
+                                    <table class="table table-condensed table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>项目名</th>
+                                                <th>任务名</th>
+                                                <th>分支</th>
+                                                <th>版本号</th>
+                                                <th>发布时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>wap</td>
+                                                <td>任务名</td>
+                                                <td>分支</td>
+                                                <td>版本号</td>
+                                                <td>发布时间</td>
+                                                <td><a href="#">回滚</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                            <button type="submit" class="btn btn-default">提交</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="hostmodal" tabindex="-1" role="dialog" aria-labelledby="hostLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">主机详情&nbsp; <strong id="result" class="text-danger"></strong></div>
+                    <div class="panel-body">
+                        <form class="form">
+
+                            <div class="form-group">
+                                <label for="ip">IP地址</label>
+                                <input type="text" class="form-control" id="ip" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="hostname">主机名</label>
+                                <input type="text" class="form-control input-sm" id="hostname" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="mac">物理地址</label>
+                                <input type="text" class="form-control input-sm" id="mac" readonly>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="ipmi">IPMI</label>
+                                <input type="text" class="form-control input-sm" id="ipmi" readonly>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="cpu">CPU</label>
+                                <input type="text" class="form-control input-sm" id="cpu" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="memory">MEMORY</label>
+                                <input type="text" class="form-control input-sm" id="memory" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="disk">DISK</label>
+                                <input type="text" class="form-control input-sm" id="disk" readonly>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="servicemodal" tabindex="-1" role="dialog" aria-labelledby="serviceLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">项目配置&nbsp; <strong id="service_result" class="text-danger"></strong></div>
+                    <div class="panel-body">
+                        <form id="project_form">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">基本配置</a></li>
+                                <li role="presentation"><a href="#advance" aria-controls="advance" role="tab" data-toggle="tab">高级配置</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="basic">
+                                        <div class="form-group">
+                                            <label for="project">项目</label>
+                                            <input type="text" class="form-control" id="project" name="project">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="resource">资源类型</label>
+                                            <input type="text" class="form-control" id="resource" name="resource">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="repo">资源地址</label>
+                                            <input type="text" class="form-control" id="repo" name="baseurl">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="repouser">用户名</label>
+                                            <input type="text" class="form-control" id="repouser" name="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="repopasswd">密码</label>
+                                            <input type="password" class="form-control" id="repopasswd" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="devbranch">开发分支路径/名称</label>
+                                            <input type="text" class="form-control" id="devbranch" name="devbranch">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="qabranch">测试分支路径/名称</label>
+                                            <input type="text" class="form-control" id="qabranch" name="qabranch">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="defbranch">主分支路径/名称</label>
+                                            <input type="text" class="form-control" id="defbranch" name="defbranch">
+                                        </div>
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="advance">
+                                        <div class="form-group">
+                                            <label for="temp">检出位置</label>
+                                            <input type="text" class="form-control" id="temp" name="checkout">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="root">发布位置</label>
+                                            <input type="text" class="form-control" id="root" name="deploy">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pre-build-script">构建前脚本内容</label>
+                                            <textarea class="form-control" id="pre-build-script" name="pre_build_script_content"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pre-build-script">构建脚本内容</label>
+                                            <textarea class="form-control" id="build-script" name="build_script_content"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="post-build-script">构建后脚本内容</label>
+                                            <textarea class="form-control" id="post-build-script" name="post_build_script_content"></textarea>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pre-script">发布前脚本内容</label>
+                                            <textarea class="form-control" id="pre-script" name="pre_deploy_script_content"></textarea>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="post-script">发布后脚本内容</label>
+                                            <textarea class="form-control" id="post-script" name="post_deploy_script_content"> </textarea>
+                                        </div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="servicesave" onclick="servicesave()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="usermodal" tabindex="-1" role="dialog" aria-labelledby="usermodal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">用户管理&nbsp; <strong id="user_result" class="text-danger"></strong></div>
+                    <div class="panel-body">
+                        <div>
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#select_user" aria-controls="select_user" role="tab" data-toggle="tab">选择用户</a></li>
+                                <li role="presentation"><a href="#create_user" aria-controls="create_user" role="tab" data-toggle="tab">新建用户</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="select_user">
+                                    <form class="form">
+                                        <div class="form-group">
+                                            <label for="username">用户</label>
+                                            <select class="form-control selectpicker" id="username">
+                                                <option value="dev">dev</option>
+                                                <option value="qa">qa</option>
+                                                <option value="pub">default</option>
+                                            </select>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="create_user">
+                                    <form class="form">
+                                        <div class="form-group">
+                                            <label for="create_user_name">用户名</label>
+                                            <input type="text" class="form-control" id="create_user_name" name="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create_user_passwd">密码:</label>
+                                            <input type="text" class="form-control" id="create_user_passwd" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="create_user_token">GOOGLE TOKEN</label>
+                                            <textarea class="form-control" id="create_user_token"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="create_user_auth">权限</label>
+                                            <textarea class="form-control" id="create_user_auth"></textarea>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-default">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="templatemodal" tabindex="-1" role="dialog" aria-labelledby="templateLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">监控模板</div>
+                    <div class="panel-body">
+                        <div>
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#new_rule" aria-controls="basic" role="tab" data-toggle="tab">添加策略</a></li>
+                                <li role="presentation"><a href="#create_rule" aria-controls="advance" role="tab" data-toggle="tab">创建策略</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="new_rule">
+                                    <form class="form">
+
+                                        <div class="form-group">
+                                            <label for="monitor_item">监控项&nbsp; <strong id="monitor_result" class="text-danger"></strong></label>
+                                            <select class="form-control selectpicker" id="monitor_item">
+                                                <option value="load">load</option>
+                                                <option value="memory">memory</option>
+                                                <option value="disk">disk</option>
+                                                <option value="application">application</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="monitor_condition">触发条件</label>
+                                            <input type="text" class="form-control input-sm" id="monitor_condition">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="monitor_action">动作</label>
+                                            <select class="form-control selectpicker" id="monitor_action">
+                                                <option value="mail">mail</option>
+                                                <option value="sms">sms</option>
+                                                <option value="qq">QQ</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="monitor_interval">监控周期</label>
+                                            <select class="form-control selectpicker" id="monitor_interval">
+                                                <option value="30">30S</option>
+                                                <option value="60">60S</option>
+                                                <option value="300">5Min</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">保存</button>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="create_rule">
+                                    <form class="form">
+                                        <div class="form-group">
+                                            <label for="appname">监控项名称</label>
+                                            <input type="text" class="form-control" id="appname">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="appscript">脚本名</label>
+                                            <input type="text" class="form-control" id="appscript">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="appkey">Key值</label>
+                                            <input class="form-control" id="appkey">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="appscriptfile">脚本内容</label>
+                                            <textarea class="form-control" id="appscriptfile" rows="10"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('input#quicksearch').quicksearch('table#sample tbody tr');
+        $.ajax({
+            url: '/service',
+            method: 'get',
+            dataType: 'json',
+            success: function(data){
+                jsdata = new Array();
+                $.each(data.result, function(i, value){
+                    jsdata.push({'text': value.project})
+                });
+                data = [
+                    {
+                        'text': 'Project',
+                        state: {
+                            checked: true
+                        },
+                        nodes: jsdata
+                    }
+                ];
+                $('#tree').treeview({
+                    data: data,         // data is not optional
+                    levels: 5,
+                    color: '#00a8c6',
+                    backColor: '#252830',
+                    showBorder: false
+                });
+
+            }
+        });
+        $.ajax({
+            url: '/host',
+            method: 'get',
+            dataType: 'json',
+            success: function(data){
+                console.log(data)
+            }
+        });
+
+        var search = function(e) {
+            var pattern = $('#search-project-val').val();
+            var results = $('#tree').treeview('search', [ pattern ]);
+        };
+        $('#search-project-btn').on('click', search);
+
+        $('#multi-append').on('click', function(data){
+            $('#sample').find("td:nth-child(3)").map(function(index, ele){
+                jsdata.push({'text': $(this).find('strong').text().trim()});
+            });
+        });
+
+        $('#tree').on('nodeSelected', function(event, data) {
+            $('#quicksearch').val(data.text);
+            var ret = $('input#quicksearch').quicksearch('table#sample tbody tr');
+            if(ret.matchedResultsCount == 0){
+                $('#quicksearch').val('');
+                $('input#quicksearch').quicksearch('table#sample tbody tr');
+            }
+        });
+
+        $('#timeline').click(function(){
+            $('#timemodel').modal()
+        });
+
+        $('#publish').click(function(){
+
+            $('#job').val($('#quicksearch').val());
+            var hosts = new Array();
+            $("#sample").find("input[type=checkbox]:checked").each(function(){
+                hosts.push($(this).parents('tr').find('td').eq(1).find('a').text())
+            });
+            $('#hosts').val(hosts.join(','));
+            $('#deploymodal').modal()
+
+        });
+        $('#jobtime').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii:ss',
+            autoclose: true,
+            todayBtn: true
+        });
+
+        $('#addproject').click(function(){
+            $('#servicemodal').modal()
+        });
+
+    });
+
+</script>
+</body>
+</html>
+

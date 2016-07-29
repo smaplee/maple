@@ -1,0 +1,21 @@
+body {
+    background-color: #252830;
+    font-style: oblique;
+    color: #00a8c6;
+}
+label {
+    color: #00a8c6;
+}
+a {
+    color: #00a8c6;
+}
+.history {
+    width:30px;
+    height:160px;
+    position:fixed;
+    top:300px;
+    right:0;
+    background:#1b6d85;
+    border-radius: 5px;
+    color: white;
+}
